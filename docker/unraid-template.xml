@@ -48,5 +48,8 @@
 
   <!-- Optional paths -->
   <Config Name="GG-Bot Path" Target="GG_PATH" Default="" Description="Path to gg-bot upload assistant (optional, for export)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
-  <Config Name="Upload Assistant Path" Target="UA_PATH" Default="" Description="Path to upload-assistant (optional, for export)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Upload Assistant Path" Target="UA_PATH" Default="/ua" Description="Container path to upload-assistant (optional, for export)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+
+  <!-- Advanced -->
+  <Config Name="Force Setup" Target="FORCE_SETUP" Default="false" Description="Set to 'true' to re-run auto-configuration from env vars on next container start. Reset to 'false' after." Type="Variable" Display="advanced" Required="false" Mask="false"/>
 </Container>

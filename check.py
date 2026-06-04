@@ -65,10 +65,10 @@ class UploadChecker:
         try:
             if not os.path.exists(f"{self.data_folder}database.json"):
                 with open(f"{self.data_folder}database.json", "w") as outfile:
-                    json.dump({}, outfile)
+                    json.dump({}, outfile, indent=2)
             if not os.path.exists(f"{self.data_folder}search_data.json"):
                 with open(f"{self.data_folder}search_data.json", "w") as outfile:
-                    json.dump(self.search_data, outfile)
+                    json.dump(self.search_data, outfile, indent=2)
             self.database_location = f"{self.data_folder}database.json"
             self.search_data_location = f"{self.data_folder}search_data.json"
         except Exception as e:
@@ -605,7 +605,7 @@ class UploadChecker:
     def save_database(self):
         try:
             with open(self.database_location, "w") as of:
-                json.dump(self.scan_data, of)
+                json.dump(self.scan_data, of, indent=2)
         except Exception as e:
             print("Error writing to database.json: ", e)
 
@@ -613,7 +613,7 @@ class UploadChecker:
     def save_search_data(self):
         try:
             with open(self.search_data_location, "w") as of:
-                json.dump(self.search_data, of)
+                json.dump(self.search_data, of, indent=2)
         except Exception as e:
             print("Error writing to blu_data.json: ", e)
 
@@ -621,9 +621,9 @@ class UploadChecker:
     def clear_data(self):
         try:
             with open(self.search_data_location, "w") as of:
-                json.dump({}, of)
+                json.dump({}, of, indent=2)
             with open(self.database_location, "w") as of:
-                json.dump({}, of)
+                json.dump({}, of, indent=2)
             print("Data cleared!")
         except Exception as e:
             print("Error clearing json data: ", e)

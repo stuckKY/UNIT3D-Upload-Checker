@@ -90,7 +90,7 @@ class Settings:
                 or os.path.getsize(f"{self.data_folder}settings.json") < 10
             ):
                 with open(f"{self.data_folder}settings.json", "w") as outfile:
-                    json.dump(self.default_settings, outfile)
+                    json.dump(self.default_settings, outfile, indent=2)
             # Load settings.json
             if os.path.getsize(f"{self.data_folder}settings.json") > 10:
                 with open(f"{self.data_folder}settings.json", "r") as file:
@@ -412,13 +412,13 @@ class Settings:
     def write_settings(self):
         try:
             with open(f"{self.data_folder}settings.json", "w") as outfile:
-                json.dump(self.current_settings, outfile)
+                json.dump(self.current_settings, outfile, indent=2)
         except Exception as e:
             print("Error writing settings: ", e)
 
     def reset_settings(self):
         try:
             with open(f"{self.data_folder}settings.json", "w") as outfile:
-                json.dump(self.default_settings, outfile)
+                json.dump(self.default_settings, outfile, indent=2)
         except Exception as e:
             print("Error resetting settings: ", e)

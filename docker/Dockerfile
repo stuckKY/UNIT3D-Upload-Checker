@@ -35,7 +35,7 @@ FROM python:${PYTHON_VERSION}-slim AS runtime
 LABEL maintainer="UNIT3D Upload Checker"
 LABEL description="Automated tracker upload checker for UNIT3D-based private trackers"
 LABEL version="2.0"
-LABEL org.opencontainers.image.source="https://github.com/magrhino/UNIT3D-Upload-Checker"
+LABEL org.opencontainers.image.source="https://github.com/stuckKY/UNIT3D-Upload-Checker"
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
