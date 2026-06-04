@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>UNIT3D-Upload-Checker</Name>
-  <Repository>unit3d-checker:latest</Repository>
+  <Repository>ghcr.io/magrhino/unit3d-upload-checker:latest</Repository>
   <Registry>https://github.com/magrhino/UNIT3D-Upload-Checker</Registry>
   <Branch>
     <Tag>latest</Tag>
