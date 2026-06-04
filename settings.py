@@ -246,7 +246,7 @@ class Settings:
         settings = self.current_settings
         nicknames = self.tracker_nicknames
         matching_keys = [key for key in settings.keys() if target in key]
-        matching_nicks = [nick for nick in nicknames.keys() if target in nick]
+        matching_nicks = [nick for nick in nicknames.keys() if target == nick]
         if len(matching_nicks) >= 1:
             return False
         if len(matching_keys) == 1:
