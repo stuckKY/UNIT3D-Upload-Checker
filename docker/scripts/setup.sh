@@ -43,6 +43,8 @@ default_settings = {
         'onlyencodes': '',
         'rastastugan': '',
         'homiehelpdesk': '',
+        'luminaar': '',
+        'midnightscene': '',
     },
     'gg_path': '',
     'ua_path': '',
@@ -173,6 +175,8 @@ declare -A TRACKERS=(
     ["UPLOADCX_API_KEY"]="ulcx"
     ["RAS_API_KEY"]="ras"
     ["HHD_API_KEY"]="hhd"
+    ["LUME_API_KEY"]="lume"
+    ["MNS_API_KEY"]="mns"
 )
 
 CONFIGURED_KEYS=0
@@ -256,7 +260,7 @@ if [ -n "$SITES_ENABLED" ]; then
 else
     echo "⚠ SITES_ENABLED environment variable not provided"
     echo "  Set SITES_ENABLED in your .env file (e.g., 'ras,hhd,fnp')"
-    echo "  Available: aith, blu, fnp, lst, oe, rfx, ulcx, ras, hhd"
+    echo "  Available: aith, blu, fnp, lst, oe, rfx, ulcx, ras, hhd, lume, mns"
 fi
 
 # ================================================

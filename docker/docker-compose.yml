@@ -29,6 +29,8 @@ x-unit3d-environment: &unit3d-environment
   UPLOADCX_API_KEY: ${UPLOADCX_API_KEY:-}
   RAS_API_KEY: ${RAS_API_KEY:-}
   HHD_API_KEY: ${HHD_API_KEY:-}
+  LUME_API_KEY: ${LUME_API_KEY:-}
+  MNS_API_KEY: ${MNS_API_KEY:-}
   SITES_ENABLED: ${SITES_ENABLED:-}
   GG_PATH: ${GG_PATH:-}
   UA_PATH: ${UA_PATH:-}

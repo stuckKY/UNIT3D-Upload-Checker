@@ -26,6 +26,8 @@ class Settings:
                 "onlyencodes": "",
                 "rastastugan": "",
                 "homiehelpdesk": "",
+                "luminaar": "",
+                "midnightscene": "",
             },
             "gg_path": "",  # Path to GG-Bot e.g. /home/user/gg-bot-upload-assistant/ --- Not required only for export_gg_bot()
             "ua_path": "",  # Path to upload-assistant, e.g. /home/user/uplaad-assistant/ --- Optional
@@ -65,6 +67,10 @@ class Settings:
             "oe": "onlyencodes",
             "ras": "rastastugan",
             "hhd": "homiehelpdesk",
+            "luminaar": "luminaar",
+            "lume": "luminaar",
+            "midnightscene": "midnightscene",
+            "mns": "midnightscene",
         }
 
         # Basic hierarchy for qualities used to see if a file is an upgrade

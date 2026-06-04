@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>UNIT3D-Upload-Checker</Name>
+  <Repository>unit3d-checker:latest</Repository>
+  <Registry>https://github.com/magrhino/UNIT3D-Upload-Checker</Registry>
+  <Branch>
+    <Tag>latest</Tag>
+    <TagDescription>Latest stable release</TagDescription>
+  </Branch>
+  <Network>bridge</Network>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/magrhino/UNIT3D-Upload-Checker/issues</Support>
+  <Project>https://github.com/magrhino/UNIT3D-Upload-Checker</Project>
+  <Overview>Scans your media directories for movies, matches them on TMDB, then checks UNIT3D-based private trackers for unique uploads. Supports Aither, Blutopia, FearNoPeer, LST, OnlyEncodes, ReelFliX, Upload.cx, Rastastugan, HomieHelpDesk, Luminaar, and MidnightScene.</Overview>
+  <Category>Downloaders: MediaApp:Other</Category>
+  <Icon>https://raw.githubusercontent.com/magrhino/UNIT3D-Upload-Checker/main/docker/icon.png</Icon>
+  <ExtraParams>--tty</ExtraParams>
+  <PostArgs>/bin/bash -c "trap 'exit 0' TERM INT; /usr/local/bin/entrypoint.sh; sleep infinity &amp; wait"</PostArgs>
+  <Description>Automated tracker upload checker for UNIT3D-based private trackers. Attach to the console and run: python3 check.py run-all -v</Description>
+
+  <!-- Config volume -->
+  <Config Name="Config Path" Target="/app/data" Default="/mnt/user/appdata/unit3d-checker/config" Mode="rw" Description="Stores settings.json and application data" Type="Path" Display="always" Required="true" Mask="false"/>
+
+  <!-- Outputs volume -->
+  <Config Name="Outputs Path" Target="/app/outputs" Default="/mnt/user/appdata/unit3d-checker/outputs" Mode="rw" Description="Export files (CSV, TXT, GG-bot commands)" Type="Path" Display="always" Required="true" Mask="false"/>
+
+  <!-- Media volume -->
+  <Config Name="Media Path" Target="/data" Default="" Mode="ro" Description="Path to your media/movies directory" Type="Path" Display="always" Required="true" Mask="false"/>
+
+  <!-- Required settings -->
+  <Config Name="TMDB API Key" Target="TMDB_API_KEY" Default="" Description="Your TMDB API key (https://www.themoviedb.org/settings/api)" Type="Variable" Display="always" Required="true" Mask="true"/>
+  <Config Name="Media Directory (Container)" Target="MEDIA_DIR" Default="/data" Description="Container path(s) to scan. Comma-separated for multiple (e.g. /data/movies,/data/tv)" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Enabled Sites" Target="SITES_ENABLED" Default="" Description="Comma-separated tracker nicknames to enable (e.g. blu,fnp,ras). Valid: aith, blu, fnp, lst, oe, rfx, ulcx, ras, hhd, lume, mns" Type="Variable" Display="always" Required="true" Mask="false"/>
+
+  <!-- Tracker API keys -->
+  <Config Name="Aither API Key" Target="AITH_API_KEY" Default="" Description="API key for Aither (aith)" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Blutopia API Key" Target="BLU_API_KEY" Default="" Description="API key for Blutopia (blu)" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="FearNoPeer API Key" Target="FNP_API_KEY" Default="" Description="API key for FearNoPeer (fnp)" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="LST API Key" Target="LST_API_KEY" Default="" Description="API key for LST (lst)" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="OnlyEncodes API Key" Target="OE_API_KEY" Default="" Description="API key for OnlyEncodes (oe)" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="ReelFliX API Key" Target="RFX_API_KEY" Default="" Description="API key for ReelFliX (rfx)" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Upload.cx API Key" Target="UPLOADCX_API_KEY" Default="" Description="API key for Upload.cx (ulcx)" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Rastastugan API Key" Target="RAS_API_KEY" Default="" Description="API key for Rastastugan (ras)" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="HomieHelpDesk API Key" Target="HHD_API_KEY" Default="" Description="API key for HomieHelpDesk (hhd)" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Luminaar API Key" Target="LUME_API_KEY" Default="" Description="API key for Luminaar (lume)" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="MidnightScene API Key" Target="MNS_API_KEY" Default="" Description="API key for MidnightScene (mns)" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+
+  <!-- Optional paths -->
+  <Config Name="GG-Bot Path" Target="GG_PATH" Default="" Description="Path to gg-bot upload assistant (optional, for export)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Upload Assistant Path" Target="UA_PATH" Default="" Description="Path to upload-assistant (optional, for export)" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>
