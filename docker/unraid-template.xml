@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>UNIT3D-Upload-Checker</Name>
-  <Repository>ghcr.io/magrhino/unit3d-upload-checker:latest</Repository>
-  <Registry>https://github.com/magrhino/UNIT3D-Upload-Checker</Registry>
+  <Repository>ghcr.io/stuckky/unit3d-upload-checker:latest</Repository>
+  <Registry>https://github.com/stuckKY/UNIT3D-Upload-Checker</Registry>
   <Branch>
     <Tag>latest</Tag>
     <TagDescription>Latest stable release</TagDescription>
@@ -10,8 +10,8 @@
   <Network>bridge</Network>
   <Shell>bash</Shell>
   <Privileged>false</Privileged>
-  <Support>https://github.com/magrhino/UNIT3D-Upload-Checker/issues</Support>
-  <Project>https://github.com/magrhino/UNIT3D-Upload-Checker</Project>
+  <Support>https://github.com/stuckKY/UNIT3D-Upload-Checker/issues</Support>
+  <Project>https://github.com/stuckKY/UNIT3D-Upload-Checker</Project>
   <Overview>Scans your media directories for movies, matches them on TMDB, then checks UNIT3D-based private trackers for unique uploads. Supports Aither, Blutopia, FearNoPeer, LST, OnlyEncodes, ReelFliX, Upload.cx, Rastastugan, HomieHelpDesk, Luminaar, and MidnightScene.</Overview>
   <Category>Downloaders: MediaApp:Other</Category>
   <Icon>https://raw.githubusercontent.com/magrhino/UNIT3D-Upload-Checker/main/docker/icon.png</Icon>
