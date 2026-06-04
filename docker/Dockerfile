@@ -50,19 +50,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-RUN groupadd -r -g 1000 appuser \
-    && useradd -r -u 1000 -g appuser -d /app -s /bin/bash appuser
-
 COPY --from=builder /tmp/deps /usr/local/lib/python-packages
-COPY --chown=appuser:appuser . /app
-COPY --chown=appuser:appuser docker/entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY . /app
+COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 
 RUN mkdir -p /app/data /app/outputs /app/scripts /data \
     && cp /app/docker/scripts/setup.sh /app/scripts/setup.sh \
-    && chmod +x /app/check.py /app/scripts/setup.sh /usr/local/bin/entrypoint.sh \
-    && chown -R appuser:appuser /app /data
-
-USER appuser
+    && chmod +x /app/check.py /app/scripts/setup.sh /usr/local/bin/entrypoint.sh
 
 VOLUME ["/data", "/app/data", "/app/outputs"]
 

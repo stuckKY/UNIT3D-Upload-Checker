@@ -29,6 +29,8 @@ TRACKER_MAP = {
     "ulcx": "ULCX",
     "rastastugan": "RAS",
     "homiehelpdesk": "HHD",
+    "luminaar": "LUME",
+    "midnightscene": "MNS",
 }
 
 
