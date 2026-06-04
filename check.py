@@ -82,6 +82,13 @@ class UploadChecker:
             if os.path.getsize(self.search_data_location) > 10:
                 with open(self.search_data_location, "r") as file:
                     self.search_data = json.load(file)
+            for tracker in self.enabled_sites:
+                if tracker not in self.search_data:
+                    self.search_data[tracker] = {
+                        "safe": {},
+                        "risky": {},
+                        "danger": {},
+                    }
         except Exception as e:
             print("Error loading json files: ", e)
 
