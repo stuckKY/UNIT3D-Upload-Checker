@@ -39,8 +39,12 @@ class UploadChecker:
         self.settings = Settings()
         self.update_settings()
         self.tracker_info = self.settings.tracker_info
-        self.output_folder = "./outputs/"
-        self.data_folder = "./data/"
+        if os.path.exists("/app") and os.access("/app", os.W_OK):
+            self.output_folder = "/app/outputs/"
+            self.data_folder = "/app/data/"
+        else:
+            self.output_folder = "./outputs/"
+            self.data_folder = "./data/"
         self.scan_data = {}
         self.search_data = {}
         try:
@@ -335,6 +339,7 @@ class UploadChecker:
                         value["trackers"] = {}
                     try:
                         # Query each trackers api
+                        made_request = False
                         for tracker in self.enabled_sites:
                             try:
                                 # The file already contains the results from a given tracker. Skip it.
@@ -344,6 +349,7 @@ class UploadChecker:
                                             f"{self.output_folder}{tracker} already searched. For {value['title']} Skipping."
                                         )
                                     continue
+                                made_request = True
                                 url = self.tracker_info[tracker]["url"]
                                 key = self.current_settings["keys"][tracker]
                                 if not key:
@@ -458,8 +464,9 @@ class UploadChecker:
                                     e,
                                 )
                                 print(traceback.format_exc())
-                        print("Waiting for cooldown...", self.cooldown, "seconds")
-                        time.sleep(self.cooldown)
+                        if made_request:
+                            print("Waiting for cooldown...", self.cooldown, "seconds")
+                            time.sleep(self.cooldown)
                     except Exception as e:
                         print(
                             f"Something went wrong searching trackers for {value['title']} ",
